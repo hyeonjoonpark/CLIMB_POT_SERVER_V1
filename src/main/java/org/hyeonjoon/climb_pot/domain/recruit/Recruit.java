@@ -2,6 +2,7 @@ package org.hyeonjoon.climb_pot.domain.recruit;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hyeonjoon.climb_pot.glabal.common.BaseTime;
@@ -20,4 +21,13 @@ public class Recruit extends BaseTime {
     @Column private int maximum;
     @Column(nullable = false) private String spot;
     @Column private LocalDateTime meetingDate;
+
+    @Builder
+    public Recruit(String title, String content, int maximum, String spot, LocalDateTime meetingDate) {
+        this.title = title;
+        this.content = content;
+        this.maximum = maximum;
+        this.spot = spot;
+        this.meetingDate = meetingDate;
+    }
 }
