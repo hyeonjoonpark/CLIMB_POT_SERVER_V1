@@ -17,7 +17,7 @@ public class User {
     @Column(nullable = false) private String name;
     @Column(nullable = false) private String nickname;
     @Column(unique = true, nullable = false) private String email;
-    @Column(nullable = false) @Min(12) private int age;
+    @Column(nullable = false) @Min(value = 12, message = "12세 이상만 가입가능합니다") private int age;
     @Column(nullable = false) @Enumerated(value = EnumType.STRING) private Gender gender;
     @Column(nullable = false) @Enumerated(value = EnumType.STRING) private Role role;
     @Column(nullable = false) private String country;
