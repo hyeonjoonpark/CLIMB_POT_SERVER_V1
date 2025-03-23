@@ -1,4 +1,4 @@
-package org.hyeonjoon.climb_pot.domain.recruit;
+package org.hyeonjoon.climb_pot.domain.recruit.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
