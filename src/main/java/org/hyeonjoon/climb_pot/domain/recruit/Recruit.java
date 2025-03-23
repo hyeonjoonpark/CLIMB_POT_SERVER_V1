@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hyeonjoon.climb_pot.glabal.common.BaseTime;
+import org.hyeonjoon.climb_pot.glabal.domain.BaseTime;
 
 import java.time.LocalDateTime;
 

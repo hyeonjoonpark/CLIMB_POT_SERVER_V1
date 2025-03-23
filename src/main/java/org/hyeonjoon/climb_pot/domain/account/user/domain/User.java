@@ -1,4 +1,4 @@
-package org.hyeonjoon.climb_pot.domain.account.user;
+package org.hyeonjoon.climb_pot.domain.account.user.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;

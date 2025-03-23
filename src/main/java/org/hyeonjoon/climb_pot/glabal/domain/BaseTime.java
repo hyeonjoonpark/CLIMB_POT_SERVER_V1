@@ -1,4 +1,4 @@
-package org.hyeonjoon.climb_pot.glabal.common;
+package org.hyeonjoon.climb_pot.glabal.domain;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
