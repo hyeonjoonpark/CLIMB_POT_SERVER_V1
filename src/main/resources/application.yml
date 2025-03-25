@@ -1,0 +1,43 @@
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+    path: /graphql
+  datasource:
+    url: jdbc:mysql://localhost:3306/climb?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    username: ${DB_LOCAL_USERNAME}
+    password: ${DB_LOCAL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 30
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      minimum-idle: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.hibernate.format_sql: true
+      hibernate.hibernate.default_batch_fetch_size: 100
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    generate-ddl: true
+    open-in-view: false
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: CLIMB_POT
+jwt:
+  secret: sdjfkljwekffnsaslfdfgkjlaklwdslkjfksdfjhsdfjsdsdfsklfsdjkfbsdlfs
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  port: 8081
+logging:
+  level:
+    org.springframework.security: DEBUG
