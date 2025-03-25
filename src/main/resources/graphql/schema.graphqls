@@ -1,4 +1,3 @@
-type Notification {
 enum Gender {
   MALE
   FEMALE
@@ -37,3 +36,57 @@ type Recruit {
 }
 
 scalar Instant
+
+type Query {
+  user(id: ID!): User
+  users: [User!]!
+  recruit(id: ID!): Recruit
+  recruits: [Recruit!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean!
+
+  createRecruit(input: CreateRecruitInput!): Recruit!
+  updateRecruit(id: ID!, input: UpdateRecruitInput!): Recruit!
+  deleteRecruit(id: ID!): Boolean!
+  addParticipant(recruitId: ID!, participantId: String!): Recruit!
+}
+
+input CreateUserInput {
+  name: String!
+  id: String!
+  nickname: String!
+  email: String!
+  age: Int!
+  gender: Gender!
+  role: Role!
+  country: String!
+  city: String!
+}
+
+input UpdateUserInput {
+  nickname: String
+  email: String
+  age: Int
+  country: String
+  city: String
+}
+
+input CreateRecruitInput {
+  title: String!
+  content: String!
+  maximum: Int!
+  spot: String!
+  meetingDate: String!
+}
+
+input UpdateRecruitInput {
+  title: String
+  content: String
+  maximum: Int
+  spot: String
+  meetingDate: String
+}

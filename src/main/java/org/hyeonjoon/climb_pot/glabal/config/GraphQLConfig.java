@@ -1,9 +1,10 @@
-package org.hyeonjoon.climb_pot.config;
+package org.hyeonjoon.climb_pot.glabal.config;
 
 import java.time.Instant;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
 import graphql.schema.CoercingParseLiteralException;
 import graphql.schema.CoercingParseValueException;
@@ -12,10 +13,8 @@ import graphql.schema.GraphQLScalarType;
 
 @Configuration
 public class GraphQLConfig {
-    
-    @Bean
-    public GraphQLScalarType instantScalar() {
-        return GraphQLScalarType.newScalar()
+
+    private final GraphQLScalarType instantScalar = GraphQLScalarType.newScalar()
             .name("Instant")
             .description("Java Instant scalar")
             .coercing(new graphql.schema.Coercing<Instant, String>() {
@@ -46,5 +45,10 @@ public class GraphQLConfig {
                 }
             })
             .build();
+
+    @Bean
+    public RuntimeWiringConfigurer runtimeWiringConfigurer() {
+        return wiringBuilder -> wiringBuilder
+                .scalar(instantScalar);
     }
-} 
+}
