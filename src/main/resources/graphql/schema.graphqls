@@ -1,0 +1,39 @@
+type Notification {
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+type User {
+  id: ID!
+  name: String!
+  nickname: String!
+  email: String!
+  age: Int!
+  gender: Gender!
+  role: Role!
+  country: String!
+  city: String!
+}
+
+type Recruit {
+  id: ID!
+  title: String!
+  content: String!
+  maximum: Int!
+  spot: String!
+  meetingDate: String!
+  participantIds: [String!]!
+  isFullyRecruited: Boolean!
+  createdAt: Instant!
+  createdBy: String!
+  modifiedAt: Instant!
+  modifiedBy: String!
+}
+
+scalar Instant
