@@ -30,7 +30,9 @@ public class SecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        auth -> auth.anyRequest().permitAll()
+                        auth -> auth
+                                .requestMatchers("/api/notifications/subscribe").permitAll()
+                                .anyRequest().permitAll()
                 )
                 .sessionManagement(
                         session -> session

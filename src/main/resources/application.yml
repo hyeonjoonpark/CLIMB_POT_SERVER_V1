@@ -1,8 +1,4 @@
 spring:
-  graphql:
-    graphiql:
-      enabled: true
-    path: /graphql
   datasource:
     url: jdbc:mysql://localhost:3306/climb?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
     username: ${DB_LOCAL_USERNAME}
