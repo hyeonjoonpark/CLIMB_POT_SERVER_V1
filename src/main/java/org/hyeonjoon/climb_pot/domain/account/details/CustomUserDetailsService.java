@@ -18,6 +18,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         if(user == null){
             throw new UsernameNotFoundException(username);
         }
-        return new CustomUserDetails(user, List.of());
+        return new CustomUserDetails(user);
     }
 }

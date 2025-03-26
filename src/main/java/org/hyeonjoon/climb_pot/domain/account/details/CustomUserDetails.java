@@ -3,15 +3,16 @@ package org.hyeonjoon.climb_pot.domain.account.details;
 import lombok.RequiredArgsConstructor;
 import org.hyeonjoon.climb_pot.domain.account.user.domain.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
     private final User user;
-    private final Collection<GrantedAuthority> authorities;
     @Override
     public boolean isAccountNonExpired() {
         return UserDetails.super.isAccountNonExpired();
@@ -19,7 +20,9 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
+        return authorities;
     }
 
     @Override
@@ -29,7 +32,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return user.getName();
     }
 
     @Override
