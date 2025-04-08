@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers("/api/notifications/subscribe").permitAll()
+                                .requestMatchers("/").permitAll()
                                 .anyRequest().permitAll()
                 )
                 .sessionManagement(
