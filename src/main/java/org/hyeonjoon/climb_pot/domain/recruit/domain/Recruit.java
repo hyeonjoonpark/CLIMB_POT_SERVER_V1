@@ -98,6 +98,7 @@ public class Recruit extends BaseTime {
                             </div>
                             <div class="info-item">
                                 <span class="info-label">추가모집자:</span> %s
+                            </div>
                         </div>
                     </div>
                 </body>
