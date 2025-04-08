@@ -119,7 +119,7 @@ public class Recruit extends BaseTime {
 
             return ResponseEntity.status(HttpStatus.CREATED).body(htmlContent);
         }
-        this.participantIds.add(participantId);
+        participantIds.add(participantId);
         return ResponseEntity.status(200).body("성공적으로 모집신청을 하였습니다");
     }
 
