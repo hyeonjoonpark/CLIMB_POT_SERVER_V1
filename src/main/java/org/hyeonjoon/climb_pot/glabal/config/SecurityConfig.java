@@ -17,6 +17,7 @@ import java.util.List;
 
 @Configuration
 public class SecurityConfig {
+    private static final String CLIENT_URL = "http://localhost:3001";
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -33,6 +34,10 @@ public class SecurityConfig {
                         auth -> auth
                                 .requestMatchers("/").permitAll()
                                 .anyRequest().permitAll()
+                )
+                .logout(
+                        logout -> logout.logoutUrl("/logout")
+                                .logoutSuccessUrl(CLIENT_URL)
                 )
                 .sessionManagement(
                         session -> session
